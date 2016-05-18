@@ -25,9 +25,9 @@ It only works at the parent/child/grandchild menu levels - it will fail with ugl
 ## Installation
 
 1. Put the `uninextprev` folder in `/site/plugins` or use the [Kirby CLI](https://github.com/getkirby/cli): In your project folder, from the command line, enter:
-```kirby plugin:install shoesforindustry/kirbycms-extensions/tree/master/plugins/uninextprev ```  
+```kirby plugin:install shoesforindustry/kirby-plugins-uninextprev```  
 To update the plugin use:
-```kirby plugin:update shoesforindustry/kirbycms-extensions/tree/master/plugins/uninextprev ```
+```kirby plugin:update shoesforindustry/kirby-plugins-uninextprev```
 2. You **must** set a comma separated quoted list of page uid's for which you want to ignore the children in next/prev in your config.php (it can be empty but must be set) e.g.
 
 ```php
