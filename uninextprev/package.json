@@ -1,0 +1,11 @@
+{
+    "name": "uninextprev",
+    "readable": "UniNextPrev",
+    "version": "0.1.3",
+    "stable": true,
+    "description": "It provide variables with links and page titles for next/prev pages and can move through the site, up and down, through parent/children/grandchildren. Also seamlessly moves through pagination (e.g. articles index) if you set it. So a sort of universal next / prev, hence 'uniNextPrev'",
+    "author": "Russ Baldwin",
+    "type": "kirby-plugin",
+    "license": "MIT",
+    "url": "http://shoesforindustry.net"
+}
