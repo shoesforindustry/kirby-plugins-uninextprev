@@ -3,5 +3,6 @@
   "author": "Russ Baldwin",
   "version": "0.1.3",
   "description": "A Kirby plugin for universal next and previous link",
-  "type": "kirby-field"
+  "type": "kirby-plugin",
+  "license": "MIT"
 }
