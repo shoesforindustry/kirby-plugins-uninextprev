@@ -2,33 +2,30 @@
 
 ## What is it?
 
-The uniNextPrev [Kirby CMS](https://getkirby.com/) plugin provide svariables with links and page titles for next/prev pages and can move through the site, up and down, through `parent/children/grandchildren` and also seamlessly moves through pagination (e.g. articles index)... if you set it. **So a sort of universal next / prev** & hence the pants name. 
- 
+The uniNextPrev [Kirby CMS](https://getkirby.com/) plugin provides variables with links and page titles for next/prev pages and can move through the site, up and down, through `parent/children/grandchildren` and also seamlessly moves through pagination (e.g. articles index)... if you set it. **So a sort of universal next / prev** & hence the name. 
+
 Although it works in Kirby2, I'm sure it could be written in a much better way, I just needed it for a project and was in a hurry. It's not had a huge amount of testing so beware and we're only posting here in response to a request on the Kirby Forum.
- 
-
-## Demo
-You can see it in action on [Susan Hall's website](http://susanhall.shoesforindustry.net). Note you can page through the site using the buttons at the bottom of the page. 
-
-1. You can move backwards & forwards down & up through levels (parent/children e.g. about/privacy). 
-2. You also can page through an article index and then through the actual details pages (articles) 
-3. Or just the index (press) skipping the detail pages (details pages are still findable with search). 
-4. It also works with Tag index pages and search indexes. 
-5. Although it is hard to see as it is minified, it is also used in the header in `rel` links for next & previous. 
-
-*We set this is a particular way, for the flow through the site, but you can do it how you please.* 
 
 
 ### Warning
 It only works at the parent/child/grandchild menu levels - it will fail with ugly errors if you try and go deeper! *Four levels is probably too deep for a site anyway - but you have been warned - dragons.*
 
+
+
 ## Installation
 
-1. Put the `uninextprev` folder in `/site/plugins` or use the [Kirby CLI](https://github.com/getkirby/cli): In your project folder, from the command line, enter:
-```kirby plugin:install shoesforindustry/kirby-plugins-uninextprev```  
-To update the plugin use:
-```kirby plugin:update shoesforindustry/kirby-plugins-uninextprev```
-2. You **must** set a comma separated quoted list of page uid's for which you want to ignore the children in next/prev in your config.php (it can be empty but must be set) e.g.
+Put the `uninextprev` folder in `/site/plugins` or use the [Kirby CLI](https://github.com/getkirby/cli). To install using the Kirby CLI, from the command line in your project folder:
+
+Install the plugin:
+
+`kirby plugin:install shoesforindustry/kirby-plugins-uninextprev`
+
+Update the plugin:
+`kirby plugin:update shoesforindustry/kirby-plugins-uninextprev`
+
+
+
+You **must** set a comma separated quoted list of page uid's for which you want to ignore the children in next/prev in your config.php (it can be empty but must be set) e.g.
 
 ```php
 /*---------------------------------------
@@ -91,8 +88,12 @@ After you have called the `uninextprev()` plugin you can also use the plugin var
 ### Call in a header snippet
 
 Perhaps for 'head/rel' links e.g. 
-  
-`<link rel="next" title="Page title" href="http://...."/>`
+
+```html
+<link rel="next" title="Page title" href="http://...."/>
+```
+
+
 
 ```php
 //Call header snippet with uniNextPrev plugin variables
@@ -109,7 +110,6 @@ In your header snippet use with something like (check to see if set and not blan
 <?php if(isset($nextPageURL) AND $nextPageURL<>''): ?>
 <link rel="next" title="<?php echo $nextPageTitle ?>" href="<?php echo $nextPageURL ?>"/>
 <?php endif?>
-
 ```
 
 #### Call in a footer snippet
@@ -118,9 +118,9 @@ Or in your `<footer>` with nav links
 e.g. 
 ```html
 <a href="http://..." rel="next" title="Page title ->">Next ></a>
-````
+​````
 
-```php
+​```php
 //Call footer snippet with uniNextPrev plugin variables
 snippet('footer', array(
 	'nextPageURL' => $uniNextPrev['nextPageURL'],
@@ -137,7 +137,23 @@ In your footer snippet use with something like (check to see if set!):
 <?php endif?>
 ```
 
-#### Notes
+
+
+### Demo
+
+You can see it in action on [Susan Hall's website](http://susanhall.shoesforindustry.net). Note you can page through the site using the buttons at the bottom of the page. 
+
+1. You can move backwards & forwards down & up through levels (parent/children e.g. about/privacy). 
+2. You also can page through an article index and then through the actual details pages (articles) 
+3. Or just the index (press) skipping the detail pages (details pages are still findable with search). 
+4. It also works with Tag index pages and search indexes. 
+5. It is also used in the header in `rel` links for next & previous. 
+
+*We set this is a particular way, for the flow through the site, but you can do it how you please.* 
+
+
+
+## Notes
 
 In the demo, we don't call 'prev' on the first page or 'next' on the last, you could probably fix this ;-) 
 
