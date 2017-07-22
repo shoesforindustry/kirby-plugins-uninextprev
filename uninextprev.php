@@ -26,7 +26,7 @@
  * See README for much more information!
  * 
  * @author Russ Baldwin
- * @version v0.1.4
+ * @version v0.1.5
  * @copyright shoesforindustry.net, 06 Nov, 2014
  * @package Kirby Plugin
 **/
@@ -48,8 +48,8 @@ function uninextprev($options = array()) {
   $options = array_merge($defaults, $options);
   $pagination = $options['pagination'];
   //uniNextPrev_ignore_children list is pulled from config.php so set it!
-  $ignoreChildren = c::get('uniNextPrev_ignore_children');
-  
+  $ignoreChildren = c::get('uniNextPrev_ignore_children'),array());
+   
   // ***************************************************
 
   // Next
@@ -106,7 +106,7 @@ elseif (page()->depth()==2 AND !page()->prevVisible()){
 }
 
 // Previous page has children/perhaps grandchildren
-elseif (page()->prevVisible()->hasVisibleChildren() AND !in_array(page()->prevVisible()->uid(), $ignoreChildren)){
+elseif (page()->prevVisible()->hasVisibleChildren() AND !in_array(page()->prevVisible()->uid(), $ignoreChildren,false)){
 
   if (page()->prevVisible()->children()->last()->hasChildren()){
     // Page has grandchildren

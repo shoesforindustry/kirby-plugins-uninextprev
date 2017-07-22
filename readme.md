@@ -21,25 +21,10 @@ Install the plugin:
 `kirby plugin:install shoesforindustry/kirby-plugins-uninextprev`
 
 Update the plugin:
+
 `kirby plugin:update shoesforindustry/kirby-plugins-uninextprev`
 
 
-
-You **must** set a comma separated quoted list of page uid's for which you want to ignore the children in next/prev in your config.php (it can be empty but must be set) e.g.
-
-```php
-/*---------------------------------------
-Set 'ignore_children; for uniNextPrev Plugin
------------------------------------------
-Set a comma separated quoted list of page uid's for which you want to ignore the children of in this plugin. Maybe because you have an index page & detail pages, but only want to show the index and not the details.
-e.g
-c::set('uniNextPrev_ignore_children',array('press','articles'));
-or an empty array
-c::set('uniNextPrev_ignore_children',array(''));
-*/
-// Here we are ignoring the children (details pages) of 'press' (index page)
-c::set('uniNextPrev_ignore_children',array('press'));
-```
 
 ## How to use it?
 
@@ -64,6 +49,8 @@ If your page has pagination (e.g. articles index), you should call it with that 
 $uniNextPrev = uninextprev(array('pagination' => $articles->pagination())); 
 ?>
 ```
+
+
 
 ### Using in a template
 
@@ -139,6 +126,24 @@ In your footer snippet use with something like (check to see if set!):
 
 
 
+### Ignoring index page children
+
+You can set a comma separated, quoted list of page uid's for which you want to ignore the children of in your next/prev. Maybe because you have an index page & detail pages, but only want to show the index and not the details.
+
+In your `config.php`.
+
+```php
+/*---------------------------------------
+Set 'ignore_children; for uniNextPrev Plugin
+-----------------------------------------
+Set a comma separated quoted list of page uid's for which you want to ignore the children of in this plugin. Maybe because you have an index page & detail pages, but only want to show the index and not the details.
+*/
+// Here we are ignoring the children (details pages) of 'press' (index page)
+c::set('uniNextPrev_ignore_children',array('press'));
+```
+
+
+
 ### Demo
 
 You can see it in action on [Susan Hall's website](http://susanhall.shoesforindustry.net). Note you can page through the site using the buttons at the bottom of the page. 
@@ -151,9 +156,7 @@ You can see it in action on [Susan Hall's website](http://susanhall.shoesforindu
 
 *We set this is a particular way, for the flow through the site, but you can do it how you please.* 
 
-
-
-## Notes
+**Notes**
 
 In the demo, we don't call 'prev' on the first page or 'next' on the last, you could probably fix this ;-) 
 
@@ -175,6 +178,9 @@ snippet('footer', array(
 )) 
 ```
 
+
+
 ## Author
+
 Russ Baldwin
 <http://shoesforindustry.net>
